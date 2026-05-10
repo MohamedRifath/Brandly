@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Product Card/Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="PDetail.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+  </head>
+  <body>
+    
+    <div class = "card-wrapper">
+      <div class = "card">
+        <!-- card left -->
+        <div class = "product-imgs">
+          <div class = "img-display">
+            <div class = "img-showcase">
+              <img src = "imgs/aw1.png" alt = "watch image">
+              <img src = "imgs/aw2.png" alt = "watch image">
+              <img src = "imgs/aw3.png" alt = "watch image">
+              <img src = "imgs/aw4.png" alt = "watch image">
+              <img src = "imgs/aw5.png" alt = "watch image">
+            </div>
+          </div>
+          <div class = "img-select">
+            <div class = "img-item">
+              <a href = "#" data-id = "1">
+                <img src = "imgs/aw1.png" alt = "shoe image">
+              </a>
+            </div>
+            <div class = "img-item">
+              <a href = "#" data-id = "2">
+                <img src = "imgs/aw2.png" alt = "watch image">
+              </a>
+            </div>
+            <div class = "img-item">
+              <a href = "#" data-id = "3">
+                <img src = "imgs/aw3.png" alt = "watch image">
+              </a>
+            </div>
+            <div class = "img-item">
+              <a href = "#" data-id = "4">
+                <img src = "imgs/aw4.png" alt = "watch image">
+              </a>
+            </div>
+            <div class = "img-item">
+              <a href = "#" data-id = "5">
+                <img src = "imgs/aw5.png" alt = "watch image">
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- card right -->
+        <div class = "product-content">
+          <h2>Ultra watch</h2>
+          <div class = "product-rating">
+            <i class = "fas fa-star"></i>
+            <i class = "fas fa-star"></i>
+            <i class = "fas fa-star"></i>
+            <i class = "fas fa-star"></i>
+            <i class = "fas fa-star-half-alt"></i>
+          </div>
+
+          <div class = "product-price">
+            <h3 class = "new-price">AED 110</h3>
+          </div>
+
+          <div class = "purchase-info">
+            <input type = "number" min = "0" value = "1">
+            <a href="https://wa.me/p/6002163853155497/971563371796" type = "button" class = "btn">
+              Buy Now <i class = "fas fa-shopping-cart"></i>
+            </a>
+          </div>
+
+          <div class = "product-detail">
+            <h4>About this item</h4>
+            <ul >
+              <li>Apple Logo Appear At A Time Of On/Off</li>
+              <li>Call Talk Through Watch</li>
+              <li>Vibration Alert</li>
+              <li>Shows All Records All Missed Calls/ Received Calls/ Dialled Calls</li>
+              <li>App Notification Like Message Whatsapp, facebook etc.</li>
+              <li>Unique Watch Faces Feature Working</li>
+              <li>Heart Rate Sensor With Real Time Analysis Blood Pressure Monitor/ Blood Oxygen Monitor</li>
+              <li>Stop watch, Sport Activity, Calculator, Sleep Mode , Alarm , Reminder etc</li>
+              <li></li>
+            </ul>
+
+            <ul>
+              <p>Color: <span>Orange</span></p>
+              <p>Available: <span>in stock</span></p>
+              <p>Shipping Area: <span>Only in Abu Dhabi</span></p>
+              <p>Shipping Fee: <span>AED 5</span></p>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+    <script>
+      const imgs = document.querySelectorAll('.img-select a');
+const imgBtns = [...imgs];
+let imgId = 1;
+
+imgBtns.forEach((imgItem) => {
+    imgItem.addEventListener('click', (event) => {
+        event.preventDefault();
+        imgId = imgItem.dataset.id;
+        slideImage();
+    });
+});
+
+function slideImage(){
+    const displayWidth = document.querySelector('.img-showcase img:first-child').clientWidth;
+
+    document.querySelector('.img-showcase').style.transform = `translateX(${- (imgId - 1) * displayWidth}px)`;
+}
+
+window.addEventListener('resize', slideImage);
+    </script>
+  </body>
+</html>
